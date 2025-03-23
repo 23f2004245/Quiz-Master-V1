@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Register page
+{% endblock %}
+
+{% block style %}
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #E6E6FA, #D8BFD8);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        .register-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 100%;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+        }
+        h2 {
+            color: #4A235A;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            align-items: center;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #D5B6E2;
+            border-radius: 8px;
+            background: #F3E5F5;
+            color: #4A235A;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+        input:focus {
+            border-color: #7A5DC7;
+            box-shadow: 0 0 5px rgba(122, 93, 199, 0.3);
+        }
+        input::placeholder {
+            color: #7D3C98;
+            font-weight: 400;
+        }
+        button {
+            align-items: center;
+            width: 100%;
+            padding: 12px;
+            background: #9370DB;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #7A5DC7;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(122, 93, 199, 0.3);
+        }
+        .nav-bar {
+            width: 100%;
+            text-align: center;
+        }
+        .nav-bar a {
+            color: #7D3C98;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px;
+        }
+        .nav-bar a:hover {
+            color: #4A235A;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="register-container">
+        <div class="nav-bar">
+            <a href="{{ url_for('main.login') }}">Already have an account? Login</a>
+        </div>
+        <h2>Register</h2>
+        <form action="{{ url_for('main.register_post') }}" class="form" method="POST">
+            <div class="input-container">
+                <input type="text" name="username" placeholder="Email (Username)" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="text" name="qualification" placeholder="Qualification (Year of College)" required>
+                <button type="submit">Register</button>
+        </form>
+    </div>
+{% endblock %}
+

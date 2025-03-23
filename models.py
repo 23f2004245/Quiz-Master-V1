@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash
 
 db = SQLAlchemy()
 
@@ -9,10 +10,9 @@ class User(db.Model):
     password = db.Column(db.String(80), nullable=False)
     fullname = db.Column(db.String(120), nullable=False)
     qualification = db.Column(db.String(120), nullable=False)
-    DOB = db.Column(db.String(120), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
 
-class Subject(db.Model):  
+class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subject_name = db.Column(db.String(120), nullable=False)
 
